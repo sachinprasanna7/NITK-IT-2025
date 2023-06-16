@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Airplane Booking</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        nav ul {
+        display: flex;
+        list-style: none;
+        margin: 5px;
+        padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2 class = "headerline">MAI AIRLINES</h2>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Flights</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href = "login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="booking-form">
+        <h2>Book Your Flight Now</h2>
+        <form>
+            <label for="from">From:</label>
+            <input type="text" id="from" name="from" style="text-align: center;">
+            <label for="to">To:</label>
+            <input type="text" id="to" name="to"><br>
+            <label for="depart">Departure Date:</label><br><br>
+            <input type="date" id="depart" name="depart">
+            <br>
+            <label for="return">Return Date:</label><br><br>
+            <input type="date" id="return" name="return"><br>
+            <label for="passengers">Passengers:</label>
+            <select id="passengers" name="passengers">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select><br>
+            <label for="economy">Economy</label><br>
+            <input type="radio" id="economy" name="class" value="economy">
+            <label for="business">Business</label><br>
+            <input type="radio" id="business" name="class" value="business">
+            <label for="firstclass">First Class</label><br>
+            <input type="radio" id="firstclass" name="class" value="firstclass">
+            <label for="roundtrip">Round Trip</label>
+            <input type="checkbox" id="roundtrip" name="roundtrip" value="roundtrip">
+            <br>
+            <input type="submit" value="Submit" style="background-color: red;">
+        </form>
+    </section>
+
+    <section id="video">
+        <video width="1200" height="600" controls>
+            <source src="media/inflight.mp4" type="video/mp4">
+            <source src="video.ogg" type="video/ogg">
+            Your browser does not support the video tag.
+        </video>
+        <br>
+        <h1>Our all new REVAMPED first class experience!</h1>
+    </section>
+
+    <section id="image">
+        <img src="media/clouds.jpg" alt="Airplane" width="1200" height="600">
+        <figcaption>View from the sky!</figcaption>
+    </section>
+
+    <footer style="text-align: center;">
+        <p>&copy; 2023 MAI AIRLINES</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reverse Words In Sentence</title>
+</head>
+
+<body>
+    <button onclick="reverseWordsInSentence()">Click me to enter a prompt</button>
+    <script>
+        function reverseWordsInSentence() {
+            var sentence = prompt("Please enter a sentence:");
+
+            // Splitting the sentence into words
+            const words = sentence.split(" ");
+
+            // Reversing each word
+            const reversedWords = words.map((word) => {
+                return word.split("").reverse().join("");
+            });
+
+            // Joining the reversed words back into a sentence
+            const reversedSentence = reversedWords.join(" ");
+
+            //Final Output
+            alert(reversedSentence);
+        }
+    </script>
+</body>
+
+</html>

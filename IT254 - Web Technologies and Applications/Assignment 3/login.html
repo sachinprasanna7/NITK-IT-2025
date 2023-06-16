@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Bookstore</title>
+    <style>
+        /* Top frame styles */
+        #top-frame {
+            background-color: #006699;
+            color: #ffffff;
+            height: 50px;
+            padding: 10px;
+            padding-bottom: 0px;
+        }
+
+        #top-frame h1 {
+            margin: 0;
+            display: inline-block;
+            font-size: 30px;
+            font-weight: normal;
+            vertical-align: middle;
+            padding-right: 20px;
+        }
+
+        #top-frame input[type="text"] {
+            padding: 6px;
+            border-radius: 4px;
+            border: none;
+            margin-left: 800px;
+            margin-bottom: 100px;
+            margin-top: 3px;
+            width: 200px;
+
+        }
+
+        #search-icon {
+            display: inline-block;
+            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+            background-image: url("search-icon.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 20px;
+        }
+
+        /* Left frame styles */
+        #left-frame {
+            background-color: #f2f2f2;
+            height: calc(100vh - 50px);
+            padding: 10px;
+            float: left;
+            width: 20%;
+        }
+
+        #left-frame ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #left-frame li {
+            margin-bottom: 10px;
+            padding: 5px;
+            background-color: #e6e6e6;
+            border-radius: 5px;
+        }
+
+        #left-frame li a {
+            text-decoration: none;
+            color: #333333;
+            display: block;
+            padding: 5px;
+        }
+
+        #left-frame li a:hover {
+            background-color: #cccccc;
+        }
+
+        /* Main frame styles */
+        #main-frame {
+            background-color: #ffffff;
+            height: calc(100vh - 50px);
+            padding: 60px;
+            float: center;
+            width: 80%;
+            text-align: center;
+        }
+
+        #main-frame h2 {
+            margin-top: 0;
+        }
+
+        #main-frame form {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        #main-frame input[type="text"],
+        #main-frame input[type="password"] {
+            padding: 10px;
+            border-radius: 4px;
+            border: solid;
+            margin: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        #main-frame input[type="submit"] {
+            background-color: #006699;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            position: absolute;
+            top: 330px;
+            left: 630px;
+        }
+
+        #main-frame input[type="submit"]:hover {
+            background-color: #004466;
+        }
+
+        #error-message {
+            margin-top: 0px;
+            color: red;
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="top-frame">
+        <h1>VAI BOOKS</h1>
+        <input type="text" placeholder="Search..">
+    </div>
+    <div id="left-frame">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Register/Sign up</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+    <div id="main-frame">
+        <h1>LOGIN INTO YOUR ACCOUNT!</h1>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <input type="submit" value="Login">
+        </form>
+        <p id="error-message">Invalid login credentials! Please try again.</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

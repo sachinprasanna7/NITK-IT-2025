@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Clothing Store Filter</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .head {
+            text-align: center;
+            color: #333;
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .gender label {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        input:invalid,
+        select:invalid {
+            border-color: #ff4136;
+        }
+
+        input:invalid:focus,
+        select:invalid:focus {
+            outline-color: #ff4136;
+        }
+
+        input:valid,
+        select:valid {
+            border-color: #ccc;
+        }
+
+        input:valid:focus,
+        select:valid:focus {
+            outline-color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="head">Clothing Filter Page</h1>
+    <form action="" method="">
+        <label for="fullname">Full Name:</label>
+        <input type="text" id="fullname" name="fullname" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" pattern="[0-9]{10}" required><br><br>
+
+        <div class="gender">
+            <label>Gender:</label><br>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">Female</label><br><br>
+        </div>
+
+        <div class="cloth-div">
+            <label for="type">Cloth Type:</label>
+            <select id="type" name="type" required>
+                <option value="">Select Type</option>
+                <option value="traditional">Traditional</option>
+                <option value="pants">Pants</option>
+                <option value="shirts">Shirts</option>
+                <option value="tshirts">T-Shirts</option>
+                <option value="salwar">Salwar</option>
+                <option value="western">Western</option>
+            </select><br><br>
+        </div>
+        <div class="color-div">
+            <label for="color">Color:</label>
+            <select id="color" name="color" required>
+                <option value="">Select Color</option>
+            </select><br><br>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        var genderRadios = document.getElementsByName('gender');
+        var typeSelect = document.getElementById('type');
+        var colorSelect = document.getElementById('color');
+        var clothDiv = document.querySelector('.cloth-div');
+        var colorDiv = document.querySelector('.color-div');
+        clothDiv.style.display = 'none';
+        colorDiv.style.display = 'none';
+
+        for (var i = 0; i < genderRadios.length; i++) {
+            genderRadios[i].addEventListener('change', function () {
+                if (this.value === 'male') {
+                    typeSelect.innerHTML = `
+        <option value="">Select Type</option>
+        <option value="traditional">Traditional</option>
+        <option value="pants">Pants</option>
+        <option value="shirts">Shirts</option>
+        <option value="tshirts">T-Shirts</option>
+      `;
+                } else if (this.value === 'female') {
+                    typeSelect.innerHTML = `
+        <option value="">Select Type</option>
+        <option value="traditional">Traditional</option>
+        <option value="salwar">Salwar</option>
+        <option value="western">Western</option>
+      `;
+                }
+
+                clothDiv.style.display = 'block';
+                colorDiv.style.display = 'none';
+                colorSelect.innerHTML = `<option value="">Select Color</option>`;
+            });
+        }
+
+        typeSelect.addEventListener('change', function () {
+            var selectedType = this.value;
+            if (selectedType === 'traditional') {
+                colorSelect.innerHTML = `
+      <option value="">Select Color</option>
+      <option value="black">Black</option>
+      <option value="white">White</option>
+      <option value="green">Green</option>
+    `;
+            } else if (selectedType === 'pants' || selectedType === 'shirts' || selectedType === 'tshirts') {
+                colorSelect.innerHTML = `
+      <option value="">Select Color</option>
+      <option value="black">Black</option>
+      <option value="white">White</option>
+      <option value="green">Green</option>
+
+    `;
+            } else if (selectedType === 'salwar') {
+                colorSelect.innerHTML = `
+      <option value="">Select Color</option>
+      <option value="black">Black</option>
+      <option value="white">White</option>
+      <option value="green">Green</option>
+    `;
+            } else if (selectedType === 'western') {
+                colorSelect.innerHTML = `
+      <option value="">Select Color</option>
+      <option value="black">Black</option>
+      <option value="white">White</option>
+      <option value="green">Green</option>
+    `;
+            }
+            colorDiv.style.display = 'block';
+        });
+
+    </script>
+</body>
+
+</html>

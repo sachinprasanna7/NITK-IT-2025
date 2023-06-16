@@ -1,0 +1,14 @@
+1. a. Write a JavaScript function to get the first element of an array. Passing the parameter 'n' will return the first 'n' elements of the array.
+
+Eg: Test Values: console.log(first([7, 9, 0, -2]));
+		     console.log(first([],3));
+		     console.log(first([7, 9, 0, -2],3));
+	Expected o/p: 7
+			  []
+		  	  [7, 9, 0]
+
+ b. Write a JavaScript program that accepts a string as input and swaps the case of each character. For example if you input 'The Quick Brown Fox' the output should be 'tHE qUICK bROWN fOX'.
+
+2. Create a form that calculates the area and perimeter for a circle, rectangle, square and triangle. The options for the shape must be given through radio buttons and the input must be fetched according to the shape chosen. For example, if circle is chosen, only one text box for radius input must be displayed, but if rectangle is chosen, there must be 2 input text box for length and breadth and so on. The area and perimeter must be displayed using alert boxes.
+
+3. Implement Quick sort and Merge sort using Javascript Functions. The input will be got from html form.

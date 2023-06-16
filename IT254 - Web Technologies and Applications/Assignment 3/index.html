@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Bookstore</title>
+	<style>
+		/* Top frame styles */
+		#top-frame {
+			background-color: #006699;
+			color: #ffffff;
+			height: 50px;
+			padding: 10px;
+            padding-bottom: 0px;
+		}
+
+		#top-frame h1 {
+			margin: 0;
+			display: inline-block;
+			font-size: 30px;
+			font-weight: normal;
+			vertical-align: middle;
+			padding-right: 20px;
+		}
+
+        #top-frame input[type="text"] {
+			padding: 6px;
+			border-radius: 4px;
+			border: none;
+			margin-left: 800px;
+            margin-bottom: 100px;
+            margin-top: 3px;
+			width: 200px;
+
+		}
+
+		#search-icon {
+			display: inline-block;
+			vertical-align: middle;
+			width: 30px;
+			height: 30px;
+			background-image: url("search-icon.png");
+			background-repeat: no-repeat;
+			background-position: center;
+			margin-right: 20px;
+		}
+
+		/* Left frame styles */
+		#left-frame {
+			background-color: #f2f2f2;
+			height: calc(100vh - 50px);
+			padding: 10px;
+			float: left;
+			width: 20%;
+		}
+
+		#left-frame ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		#left-frame li {
+			margin-bottom: 10px;
+			padding: 5px;
+			background-color: #e6e6e6;
+			border-radius: 5px;
+		}
+
+		#left-frame li a {
+			text-decoration: none;
+			color: #333333;
+			display: block;
+			padding: 5px;
+		}
+
+		#left-frame li a:hover {
+			background-color: #cccccc;
+		}
+
+		/* Main frame styles */
+		#main-frame {
+			background-color: #ffffff;
+			height: calc(100vh - 50px);
+			padding: 60px;
+			float: center;
+			width: 80%;
+			text-align: center;
+		}
+
+		#main-frame h2 {
+			margin-top: 0;
+		}
+
+		.book {
+			display: inline-block;
+			position: relative;
+			margin: 10px;
+			cursor: pointer;
+            margin-top: 20px;
+		}
+
+		.book img {
+			display: block;
+			width: 200px;
+			height: 250px;
+			transition: transform 0.3s ease-in-out;
+		}
+
+		.book:hover img {
+			transform: translateY(-10px);
+		}
+
+		.book .caption {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: rgba(0, 0, 0, 0.6);
+			color: #ffffff;
+			padding: 10px;
+			opacity: 0;
+			transition: opacity 0.3s ease-in-out;
+		}
+
+		.book:hover .caption {
+			opacity: 1;
+		}
+
+		.book .caption h3 {
+			margin-top: 0;
+			margin-bottom: 5px;
+		}
+
+		.book .caption p {
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="top-frame">
+		<h1>VAI BOOKS</h1>
+        <input type="text" placeholder="Search..">
+        <!-- <form></form>
+			<input type="text" placeholder="Search...">
+		</form> -->
+	</div>
+	<div id="left-frame">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About Us</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Register/Sign up</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+    <div id="main-frame">
+        <h2>BORROW OR BUY, WE GOT YOU!</h2>
+        <p>CHECK OUT THESE AMAZING BOOKS!</p>
+        <div class="book">
+            <img src="pictures/percy.jpg" alt="Percy Jackson">
+            <div class="caption">
+                <h3>Percy Jackson</h3>
+                <p>by Rick Riordan</p>
+            </div>
+        </div>
+        <div class="book">
+            <img src="pictures/harry.jpg" alt="Harry Potter">
+            <div class="caption">
+                <h3>Harry Potter</h3>
+                <p>by J.K. Rowling</p>
+            </div>
+        </div>
+        <div class="book">
+            <img src="pictures/wimpykid.jpg" alt="Diary of a Wimpy Kid">
+            <div class="caption">
+                <h3>Diary of a Wimpy Kid</h3>
+                <p>by Jeff Kinney</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    
+
+
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-bottom: 5px;
+        }
+
+        #circleInputs,
+        #rectangleInputs,
+        #squareInputs,
+        #triangleInputs {
+            margin-top: 10px;
+            display: none;
+        }
+
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form id="shapeForm">
+        <label>Select a shape to calculate area:</label><br />
+        <br>
+        <input type="radio" name="shape" value="circle" onclick="showCircleInputs()" /> Circle<br />
+        <br>
+        <input type="radio" name="shape" value="rectangle" onclick="showRectangleInputs()" /> Rectangle<br />
+        <br>
+        <input type="radio" name="shape" value="square" onclick="showSquareInputs()" /> Square<br />
+        <br>
+        <input type="radio" name="shape" value="triangle" onclick="showTriangleInputs()" /> Triangle<br />
+        <br>
+        <br />
+        <div id="circleInputs">
+            <label for="radius">Radius:</label>
+            <input type="number" id="radius" name="radius" />
+        </div>
+        <div id="rectangleInputs">
+            <label for="length">Length:</label>
+            <input type="number" id="length" name="length" /><br />
+            <label for="breadth">Breadth:</label>
+            <input type="number" id="breadth" name="breadth" />
+        </div>
+        <div id="squareInputs">
+            <label for="side">Side:</label>
+            <input type="number" id="side" name="side" />
+        </div>
+        <div id="triangleInputs">
+            <label for="base">Base:</label>
+            <input type="number" id="base" name="base" /><br />
+            <label for="height">Height:</label>
+            <input type="number" id="height" name="height" />
+        </div>
+        <br />
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+
+    <script>
+        function showCircleInputs() {
+            document.getElementById("circleInputs").style.display = "block";
+            hideOtherInputs("circleInputs");
+        }
+
+        function showRectangleInputs() {
+            document.getElementById("rectangleInputs").style.display = "block";
+            hideOtherInputs("rectangleInputs");
+        }
+
+        function showSquareInputs() {
+            document.getElementById("squareInputs").style.display = "block";
+            hideOtherInputs("squareInputs");
+        }
+
+        function showTriangleInputs() {
+            document.getElementById("triangleInputs").style.display = "block";
+            hideOtherInputs("triangleInputs");
+        }
+
+        function hideOtherInputs(except) {
+            var inputs = document.querySelectorAll("div[id$='Inputs']");
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].id !== except) {
+                    inputs[i].style.display = "none";
+                }
+            }
+        }
+
+        function calculate() {
+            var shapeForm = document.getElementById("shapeForm");
+            var shapeInputs = shapeForm.elements["shape"];
+            var selectedShape = null;
+
+            for (var i = 0; i < shapeInputs.length; i++) {
+                if (shapeInputs[i].checked) {
+                    selectedShape = shapeInputs[i].value;
+                    break;
+                }
+            }
+
+            if (!selectedShape) {
+                alert("Please select a shape first.");
+                return;
+            }
+
+            if (selectedShape === "circle") {
+                var radius = parseFloat(document.getElementById("radius").value);
+                var area = Math.PI * radius * radius;
+                var perimeter = 2 * Math.PI * radius;
+                alert("Area: " + area.toFixed(2) + "\nPerimeter: " + perimeter.toFixed(2));
+            } else if (selectedShape === "rectangle") {
+                var length = parseFloat(document.getElementById("length").value);
+                var breadth = parseFloat(document.getElementById("breadth").value);
+                var area = length * breadth;
+                var perimeter = 2 * (length + breadth);
+                alert("Area: " + area.toFixed(2) + "\nPerimeter: " + perimeter.toFixed(2));
+            } else if (selectedShape === "square") {
+                var side = parseFloat(document.getElementById("side").value);
+                var area = side * side;
+                var perimeter = 4 * side;
+                alert("Area: " + area.toFixed(2) + "\nPerimeter: " + perimeter.toFixed(2));
+            } else if (selectedShape === "triangle") {
+                var base = parseFloat(document.getElementById("base").value);
+                var height = parseFloat(document.getElementById("height").value);
+                var area = (base * height) / 2;
+                var perimeter = "Perimeter calculation not available for a triangle.";
+                alert("Area: " + area.toFixed(2) + "\n" + perimeter);
+            }
+        }
+    </script>
+</body>
+</html>

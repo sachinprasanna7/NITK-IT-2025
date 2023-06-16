@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Linear Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .input-container {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        button {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            margin-top: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #f2f2f2;
+            border: none;
+        }
+
+        button {
+            background-color: blue;
+            color: blanchedalmond;
+            cursor: pointer;
+            width: auto;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: blanchedalmond;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="input-container">
+        <label for="arrayInput">Enter the array (comma-separated):</label>
+        <input type="text" id="arrayInput">
+    </div>
+    <div class="input-container">
+        <label for="searchInput">Enter the number to search:</label>
+        <input type="number" id="searchInput">
+    </div>
+    <button onclick="linearSearch()">Search</button>
+
+    <script>
+        function linearSearch() {
+            var arrayInput = document.getElementById("arrayInput").value;
+            var searchInput = parseInt(document.getElementById("searchInput").value);
+
+            if (arrayInput === "") {
+                alert("Please enter the array.");
+                return;
+            }
+
+            if (isNaN(searchInput)) {
+                alert("Please enter a valid number to search.");
+                return;
+            }
+
+            var array = arrayInput.split(",").map(Number);
+            var index = -1;
+
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] === searchInput) {
+                    index = i;
+                    break;
+                }
+            }
+
+            if (index !== -1) {
+                alert("Number found at index: " + index);
+            } else {
+                alert("Number not found in the array.");
+            }
+        }
+    </script>
+</body>
+
+</html>

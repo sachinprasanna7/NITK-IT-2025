@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Bookstore</title>
+    <style>
+        /* Top frame styles */
+        #top-frame {
+            background-color: #006699;
+            color: #ffffff;
+            height: 50px;
+            padding: 10px;
+            padding-bottom: 0px;
+        }
+
+        #top-frame h1 {
+            margin: 0;
+            display: inline-block;
+            font-size: 30px;
+            font-weight: normal;
+            vertical-align: middle;
+            padding-right: 20px;
+        }
+
+        #top-frame input[type="text"] {
+            padding: 6px;
+            border-radius: 4px;
+            border: none;
+            margin-left: 800px;
+            margin-bottom: 100px;
+            margin-top: 3px;
+            width: 200px;
+
+        }
+
+        #search-icon {
+            display: inline-block;
+            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+            background-image: url("search-icon.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 20px;
+        }
+
+        .login-message {
+            margin-left: 800px;
+            margin-top: 3px;
+            color: white;
+            position: absolute;
+            top: 20px;
+            left: 230px;
+        }
+
+        #top-frame input[type="submit"] {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 8px 10px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+            margin-left: 50px;
+        }
+
+        #top-frame input[type="submit"]:hover {
+            background-color: white;
+            color: black;
+        }
+
+
+
+        /* Left frame styles */
+        #left-frame {
+            background-color: #f2f2f2;
+            height: calc(100vh - 50px);
+            padding: 10px;
+            float: left;
+            width: 20%;
+        }
+
+        #left-frame ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #left-frame li {
+            margin-bottom: 10px;
+            padding: 5px;
+            background-color: #e6e6e6;
+            border-radius: 5px;
+        }
+
+        #left-frame li a {
+            text-decoration: none;
+            color: #333333;
+            display: block;
+            padding: 5px;
+        }
+
+        #left-frame li a:hover {
+            background-color: #cccccc;
+        }
+
+        /* Main frame styles */
+
+        .book {
+            display: inline-block;
+            position: relative;
+            margin: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .book img {
+            display: block;
+            width: 200px;
+            height: 250px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .book:hover img {
+            transform: translateY(-10px);
+        }
+
+        .book .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #ffffff;
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .book:hover .caption {
+            opacity: 1;
+        }
+
+        .book .caption h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+        .book .caption p {
+            margin: 0;
+        }
+
+        #main-frame {
+            background-color: #ffffff;
+            height: calc(100vh - 50px);
+            padding: 60px;
+            float: center;
+            width: 80%;
+            text-align: center;
+        }
+
+        #main-frame h2 {
+            margin-top: 0;
+        }
+
+        .user-details {
+            margin-top: 40px;
+            font-size: 20px;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .user-details p {
+            margin-bottom: 15px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-left: 100px;
+            padding-top: 30px;
+        }
+
+        .card {
+            width: calc(33.33% - 20px);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #006699;
+
+            transition: transform .2s;
+        }
+
+        .card h2 {
+            font-size: 24px;
+            margin-top: 0px;
+            color: white;
+        }
+
+        .card p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 0px;
+            color: white;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="top-frame">
+        <h1>VAI BOOKS</h1>
+
+        <form class="login-message" action="index.html">
+            <label for="">HI USER!</label>
+            <input type="submit" value="LOG OUT">
+        </form>
+
+    </div>
+    <div id="left-frame">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="buybooks.html">Buy Books</a></li>
+            <li><a href="borrowbooks.html">Borrow Books</a></li>
+            <li><a href="viewbooks.html">View Books</a></li>
+            <li><a href="editprofile.html">Edit Profile</a></li>
+        </ul>
+    </div>
+    <div id="main-frame">
+        <div class="cards">
+            <div class="card">
+                <h2>ID</h2>
+                <p>12345678</p>
+            </div>
+            <div class="card">
+                <h2>BOOKS OWNED</h2>
+                <p>3</p>
+            </div>
+            <div class="card">
+                <h2>PURSE</h2>
+                <p>$10</p>
+            </div>
+            <div class="card">
+                <h2>FAVOURITE BOOK</h2>
+                <p>PERCY JACKSON</p>
+            </div>
+            <div class="card">
+                <h2>MEMBER SINCE</h2>
+                <p>JAN 2020</p>
+            </div>
+            <div class="card">
+                <h2>My Wishlist</h2>
+                <p>Items I want to purchase in the future.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

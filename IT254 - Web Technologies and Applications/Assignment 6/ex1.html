@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Find Second Lowest and Second Greatest Numbers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            margin-left: 20px;
+        }
+        
+        h2 {
+            margin-top: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            display: inline-block;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            display: block;
+            margin-top: 10px;
+            padding: 8px;
+            background-color: #08c0d4;
+            color: #fff;
+            border-radius: 4px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: black;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>Find Second Lowest and Second Greatest Numbers</h2>
+    <label for="sizeInput">Enter array size:</label>
+    <input type="number" id="sizeInput">
+    <div>
+        <label>Enter array values separated by commas:</label>
+        <input type="text" id="arrInput" />
+        <br>
+        <button onclick="findSecondLowestAndGreatest()">Find</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+
+        function findSecondLowestAndGreatest() {
+
+            // Getting the array and its size
+            var arrInput = document.getElementById("arrInput").value;
+
+            // Converting the string to an array of numbers, by spititng the string at commas and mapping the resulting strings to numbers
+            var arr = arrInput.split(",").map(Number);
+
+            // Getting the size of the array as inputted by the user
+            var givenSize = document.getElementById("sizeInput").value;
+
+            // Error handling, if the size given and size of array do not match, then display an error message
+            if (arr.length != givenSize) {
+                document.getElementById("result").innerHTML = "<br>Array size does not match the given size!";
+            }
+
+            else {
+                //Sorting the array and finding the second lowest and second greatest values
+                var sortedArr = arr.sort((a, b) => a - b);
+                var secondLowest = sortedArr[1];
+                var secondGreatest = sortedArr[sortedArr.length - 2];
+
+                // Displaying the results
+                document.getElementById("result").innerHTML = `<br>Second Lowest Element: ${secondLowest}<br>Second Greatest Element: ${secondGreatest}`;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add or Remove to a Dropdown List</title>
+    <meta charset="UTF-8">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        select {
+            margin-right: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #08c0d4;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: black;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Dropdown List</h1>
+    <form>
+        <label for="add-item">Add Item:</label>
+        <input type="text" id="add-item" placeholder="Type item name">
+        <br>
+        <button type="button" id="add-btn">Add</button>
+        <br><br>
+        <label for="remove-item">Remove Item:</label>
+        <select id="remove-item">
+            <option value="">Select item</option>
+        </select>
+        <br>
+        <button type="button" id="remove-btn">Remove</button>
+    </form>
+    <br><br>
+    <h2>Current List:</h2>
+    <ul id="item-list">
+    </ul>
+
+    <script>
+        // Get references to the DOM elements
+        const addItemInput = document.getElementById('add-item');
+        const addItemButton = document.getElementById('add-btn');
+        const removeItemSelect = document.getElementById('remove-item');
+        const removeItemButton = document.getElementById('remove-btn');
+        const itemList = document.getElementById('item-list');
+
+        // Adding event listeners for the add and remove buttons
+        addItemButton.addEventListener('click', addItem);
+        removeItemButton.addEventListener('click', removeItem);
+
+        function addItem() {
+            // Getting the item name from the input field
+            const itemName = addItemInput.value.trim();
+
+            // If the input field is not empty, add the item to the list and the dropdown menu
+            if (itemName !== '') {
+                // Creating a new list item element and add it to the list
+                const li = document.createElement('li');
+                li.textContent = itemName;
+                itemList.appendChild(li);
+
+                // Creating a new option element and add it to the dropdown menu
+                const option = document.createElement('option');
+                option.value = itemName;
+                option.textContent = itemName;
+                removeItemSelect.appendChild(option);
+
+                // Clearing the input field
+                addItemInput.value = '';
+            }
+        }
+
+        function removeItem() {
+            // Getting the selected item from the dropdown menu
+            const selectedItem = removeItemSelect.value;
+
+            // If an item is selected, removing it from the list and the dropdown menu
+            if (selectedItem !== '') {
+                // Removing the item from the list
+                const items = itemList.getElementsByTagName('li');
+                for (let i = 0; i < items.length; i++) {
+                    if (items[i].textContent === selectedItem) {
+                        itemList.removeChild(items[i]);
+                        break;
+                    }
+                }
+
+                // Removing the item from the dropdown menu
+                const options = removeItemSelect.getElementsByTagName('option');
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].value === selectedItem) {
+                        removeItemSelect.removeChild(options[i]);
+                        break;
+                    }
+                }
+
+                // Selecting the default option in the dropdown menu
+                removeItemSelect.value = '';
+            }
+        }
+
+    </script>
+</body>
+
+</html>

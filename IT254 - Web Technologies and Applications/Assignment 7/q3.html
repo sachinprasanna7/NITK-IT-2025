@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-bottom: 20px;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <form>
+        <label for="numbers">Input the Numbers separated by commas:</label><br>
+        <input type="text" id="numbers" name="numbers"><br>
+    </form>
+    <button onclick="quickSort()">Quicksort</button>
+    <p id="answer_quick"></p>
+    <button onclick="mergeSort()">Mergesort</button>
+    <p id="answer_merge"></p>
+
+    <script>
+        function quickSort() {
+            var inputNumbers = document.getElementById("numbers").value;
+            var numberArray = inputNumbers.split(",").map(Number);
+
+            if (validateInput(numberArray)) {
+                var sortedArray = performQuickSort(numberArray.filter(isValidNumber));
+                document.getElementById("answer_quick").innerHTML = "Quicksort Result: " + sortedArray.join(", ");
+            } else {
+                document.getElementById("answer_quick").innerHTML = "Invalid input. Please enter a valid comma-separated list of numbers.";
+            }
+        }
+
+        function mergeSort() {
+            var inputNumbers = document.getElementById("numbers").value;
+            var numberArray = inputNumbers.split(",").map(Number);
+
+            if (validateInput(numberArray)) {
+                var sortedArray = performMergeSort(numberArray.filter(isValidNumber));
+                document.getElementById("answer_merge").innerHTML = "Mergesort Result: " + sortedArray.join(", ");
+            } else {
+                document.getElementById("answer_merge").innerHTML = "Invalid input. Please enter a valid comma-separated list of numbers.";
+            }
+        }
+
+        function validateInput(array) {
+            for (var i = 0; i < array.length; i++) {
+                if (isNaN(array[i])) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function isValidNumber(number) {
+            return !isNaN(number);
+        }
+
+        function performQuickSort(array) {
+            if (array.length <= 1) {
+                return array;
+            }
+
+            var pivot = array[array.length - 1];
+            var leftArray = [];
+            var rightArray = [];
+
+            for (var i = 0; i < array.length - 1; i++) {
+                if (array[i] <= pivot) {
+                    leftArray.push(array[i]);
+                } else {
+                    rightArray.push(array[i]);
+                }
+            }
+
+            return [...performQuickSort(leftArray), pivot, ...performQuickSort(rightArray)];
+        }
+
+        function performMergeSort(array) {
+            if (array.length <= 1) {
+                return array;
+            }
+
+            var mid = Math.floor(array.length / 2);
+            var leftArray = array.slice(0, mid);
+            var rightArray = array.slice(mid);
+
+            return merge(performMergeSort(leftArray), performMergeSort(rightArray));
+        }
+
+        function merge(leftArray, rightArray) {
+            var mergedArray = [];
+            var leftIndex = 0;
+            var rightIndex = 0;
+
+            while (leftIndex < leftArray.length && rightIndex < rightArray.length) {
+                if (leftArray[leftIndex] <= rightArray[rightIndex]) {
+                    mergedArray.push(leftArray[leftIndex]);
+                    leftIndex++;
+                } else {
+                    mergedArray.push(rightArray[rightIndex]);
+                    rightIndex++;
+                }
+            }
+
+            while (leftIndex < leftArray.length) {
+                mergedArray.push(leftArray[leftIndex]);
+                leftIndex++;
+            }
+
+            while (rightIndex < rightArray.length) {
+                mergedArray.push(rightArray[rightIndex]);
+                rightIndex++;
+            }
+
+            return mergedArray;
+        }
+    </script>
+</body>
+
+</html>

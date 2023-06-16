@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Question 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .input-container {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        button {
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 4px;
+            margin-top: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: blue;
+            color: blanchedalmond;
+            cursor: pointer;
+            width: auto;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: blanchedalmond;
+            color: black;
+        }
+
+        #result {
+            margin-top: 20px;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="input-container">
+        <p>Enter elements of array:</p>
+        <input type="text" id="arrayInput">
+    </div>
+    <div class="input-container">
+        <p>Enter the value of K:</p>
+        <input type="number" id="kInput">
+    </div>
+    <button onclick="findKthSmallest()">Find Kth Smallest Element</button>
+
+    <script>
+        function findKthSmallest() {
+            var arrayInput = document.getElementById("arrayInput").value;
+            var kInput = document.getElementById("kInput").value;
+            var arr = arrayInput.split(",").map(function (item) {
+                return parseInt(item.trim());
+            });
+            if (arr.length === 0 || isNaN(kInput) || kInput <= 0 || kInput > arr.length) {
+                var resultElement = document.getElementById("result");
+                resultElement.textContent = "Invalid inputs. Please enter a valid array and a valid value for K.";
+                return;
+            }
+            arr.sort(function (a, b) {
+                return a - b;
+            });
+            var kthSmallest = arr[kInput - 1];
+            var resultElement = document.getElementById("result");
+            alert("The " + kInput + "th smallest element is: " + kthSmallest);
+        }
+    </script>
+</body>
+
+</html>

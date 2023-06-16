@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Recursive Binary Search</title>
+</head>
+
+<body>
+
+  <!-- The Sample Array which is displayed to the user and on which binary search is to be performed on. -->
+  <p>Array to be searched on: [4, 6, 7, 8, 9, 12, 25, 34]</p>
+
+  <form onsubmit="event.preventDefault(); searchNumber();">
+    <label for="numberInput">Enter a number to search for </label>
+    <input type="number" id="numberInput" required>
+    <br><br>
+    <button type="submit">Binary Search</button>
+  </form>
+
+  <script>
+
+    // The array on which binary search is to be performed on
+    var arr = [4, 6, 7, 8, 9, 12, 25, 34];
+
+    // Recursive binary search function
+    function recursiveBinarySearch(arr, key, left, right) {
+      if (left > right) {
+        return -1;
+      }
+
+      const mid = Math.floor((left + right) / 2);
+
+      if (arr[mid] === key) {
+        return mid;
+      } else if (arr[mid] < key) {
+        return recursiveBinarySearch(arr, key, mid + 1, right);
+      } else {
+        return recursiveBinarySearch(arr, key, left, mid - 1);
+      }
+    }
+
+
+    // Function to search for a number in the array
+    function searchNumber() {
+
+      //Getting inputted element and its value
+      const input = document.getElementById("numberInput");
+      const key = parseInt(input.value);
+
+      // Calling the recursive binary search function
+      const index = recursiveBinarySearch(arr, key, 0, arr.length - 1);
+
+      // Displaying the result
+      if (index === -1) {
+        alert(`${key} was not found`);
+      } else {
+        alert(`${key} was found at index ${index}`);
+      }
+    }
+
+    
+  </script>
+</body>
+
+</html>

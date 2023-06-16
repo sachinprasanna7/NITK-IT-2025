@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Question 4</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .stack-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stack-visualization {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            width: 400px;
+            height: 500px;
+            border: 2px solid #000;
+            margin-right: 20px;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        .stack-controls {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stack-item {
+            width: 80px;
+            height: 40px;
+            background-color: #cce5ff;
+            border: 1px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+
+        .stack-item:nth-child(odd) {
+            background-color: blue;
+            color: blanchedalmond;
+        }
+
+        .stack-item:nth-child(even) {
+            background-color: blue;
+            color: blanchedalmond;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: blue;
+            color: blanchedalmond;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: whitesmoke;
+            color: black;
+        }
+
+        input[type="number"] {
+            margin-top: 10px;
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stack-container">
+        <div class="stack-visualization" id="stackVisualization"></div>
+        <div class="stack-controls">
+            <label for="valueInput">Enter value to push</label>
+            <input type="number" id="valueInput" placeholder="Value">
+            <button onclick="push()">Push</button>
+            <button onclick="pop()">Pop</button>
+        </div>
+    </div>
+    <script>
+        var stack = [];
+
+        function push() {
+            var valueInput = document.getElementById("valueInput").value;
+
+            if (valueInput === "") {
+                alert("Please enter a value.");
+                return;
+            }
+
+            stack.push(valueInput);
+            updateStackVisualization();
+            document.getElementById("valueInput").value = "";
+        }
+
+        function pop() {
+            if (stack.length === 0) {
+                alert("INVALID, Stack is empty.");
+                return;
+            }
+
+            stack.pop();
+            updateStackVisualization();
+        }
+
+        function updateStackVisualization() {
+            var stackVisualization = document.getElementById("stackVisualization");
+            stackVisualization.innerHTML = "";
+
+            for (var i = 0; i < stack.length; i++) {
+                var stackItem = document.createElement("div");
+                stackItem.className = "stack-item";
+                stackItem.appendChild(document.createTextNode(stack[i]));
+                stackVisualization.appendChild(stackItem);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

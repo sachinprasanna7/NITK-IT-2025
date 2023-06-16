@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Rectangular Shape</title>
+</head>
+
+<body>
+  <canvas id="myCanvas" width="450" height="450"></canvas>
+  <script>
+    var canvas = document.getElementById("myCanvas");
+
+    //For 2d drawing
+    var ctx = canvas.getContext("2d");
+
+    //Filling it black in colour
+    ctx.fillStyle = "black";
+
+    // Drawing a FILLED rectangle at position (50, 50) with a width of 200 and a height of 100
+    ctx.fillRect(50, 50, 200, 100);
+  </script>
+</body>
+
+</html>

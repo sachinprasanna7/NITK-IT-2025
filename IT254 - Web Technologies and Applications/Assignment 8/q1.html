@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Question 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .deck-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        .card {
+            width: calc(100% / 12 - 20px);
+            max-width: 80px;
+            height: 120px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 5px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .card-suit {
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .card-value {
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .card-suit.red {
+            color: red;
+        }
+
+        .card-suit.black {
+            color: black;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            background-color: blue;
+            color: blanchedalmond;
+            cursor: pointer;
+            width: auto;
+            text-align: center;
+            size: 100px;
+            padding: 12px;
+            border-radius: 2px  ;
+        }
+
+        button:hover {
+            background-color: blanchedalmond;
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Add!</h1>
+    <div class="deck-container" id="deckContainer"></div>
+    <button onclick="addCard()">Add Card</button>
+    <script>
+        const cardSuits = ['♠', '♡', '♢', '♣'];
+        const cardValues = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+        function generateDeck() {
+            const deck = [];
+
+            for (let suitIndex = 0; suitIndex < cardSuits.length; suitIndex++) {
+                for (let value of cardValues) {
+                    deck.push({ suit: cardSuits[suitIndex], value });
+                }
+            }
+
+            return deck;
+        }
+
+        function displayCards(deck) {
+            let deckContainer = document.getElementsByClassName('deck-container')[0];
+            deckContainer.innerHTML = '';
+
+            for (let i = 0; i < 5; i++) {
+                addCard();
+            }
+        }
+
+        function addCard() {
+            if (cardCount === 12) {
+                alert("Exceeded the limit of 12 cards");
+                return;
+            }
+
+            const card = deck[cardCount];
+            const cardElement = document.createElement('div');
+            cardElement.classList.add('card');
+
+            const cardTitle = document.createElement('div');
+            cardTitle.classList.add('card-title');
+            cardTitle.textContent = card.value;
+
+            const cardSuit = document.createElement('div');
+            cardSuit.classList.add('card-suit', card.suit === '♡' || card.suit === '♢' ? 'red' : 'black');
+            cardSuit.textContent = card.suit;
+
+            cardElement.appendChild(cardTitle);
+            cardElement.appendChild(cardSuit);
+            deckContainer.appendChild(cardElement);
+            cardCount++;
+        }
+
+        const deck = generateDeck();
+        let cardCount = 0;
+        deck.sort(() => Math.random() - 0.5);
+        displayCards(deck);
+
+    </script>
+</body>
+
+</html>

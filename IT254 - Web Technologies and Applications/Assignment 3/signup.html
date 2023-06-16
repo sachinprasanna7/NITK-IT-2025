@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Bookstore</title>
+    <style>
+        /* Top frame styles */
+        #top-frame {
+            background-color: #006699;
+            color: #ffffff;
+            height: 50px;
+            padding: 10px;
+            padding-bottom: 0px;
+        }
+
+        #top-frame h1 {
+            margin: 0;
+            display: inline-block;
+            font-size: 30px;
+            font-weight: normal;
+            vertical-align: middle;
+            padding-right: 20px;
+        }
+
+        #top-frame input[type="text"] {
+            padding: 6px;
+            border-radius: 4px;
+            border: none;
+            margin-left: 800px;
+            margin-bottom: 100px;
+            margin-top: 3px;
+            width: 200px;
+
+        }
+
+        #search-icon {
+            display: inline-block;
+            vertical-align: middle;
+            width: 30px;
+            height: 30px;
+            background-image: url("search-icon.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 20px;
+        }
+
+        /* Left frame styles */
+        #left-frame {
+            background-color: #f2f2f2;
+            height: calc(100vh - 50px);
+            padding: 10px;
+            float: left;
+            width: 20%;
+        }
+
+        #left-frame ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #left-frame li {
+            margin-bottom: 10px;
+            padding: 5px;
+            background-color: #e6e6e6;
+            border-radius: 5px;
+        }
+
+        #left-frame li a {
+            text-decoration: none;
+            color: #333333;
+            display: block;
+            padding: 5px;
+        }
+
+        #left-frame li a:hover {
+            background-color: #cccccc;
+        }
+
+        /* Main frame styles */
+        #main-frame {
+            background-color: #ffffff;
+            height: calc(100vh - 50px);
+            padding: 60px;
+            float: center;
+            width: 80%;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        #main-frame h1 {
+            margin-top: 0;
+            padding-left: 300px;
+        }
+
+        #main-frame form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-left: 100px;
+        }
+
+        #main-frame form input[type="text"],
+        #main-frame form input[type="email"],
+        #main-frame form input[type="number"],
+        #main-frame form input[type="date"] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: solid ;
+            border-radius: 4px;
+        }
+
+        #main-frame form input[type="submit"] {
+            background-color: #006699;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-left: 300px;
+        }
+
+        #main-frame input[type="submit"]:hover {
+            background-color: #004466;
+        }
+
+        @media only screen and (min-width: 768px) {
+
+            /* Apply the following styles for screens with a minimum width of 768px */
+            #main-frame form {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            #main-frame form input[type="text"],
+            #main-frame form input[type="email"],
+            #main-frame form input[type="number"],
+            #main-frame form input[type="date"] {
+                width: 48%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="top-frame">
+        <h1>VAI BOOKS</h1>
+        <input type="text" placeholder="Search..">
+    </div>
+    <div id="left-frame">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Register/Sign up</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </div>
+    <div id="main-frame">
+        <h1>REGISTER HERE!</h1>
+        <form action="">
+            <input type="text" id="name" name="name" placeholder="Your name">
+            <input type="email" id="email" name="email" placeholder="Your email">
+            <input type="text" id="password" name="password" placeholder="Your password">
+            <input type="text" id="password" name="password" placeholder="Confirm your password">
+            <input type="text" id="address" name="address" placeholder="Your address">
+            <input type="text" id="organisation" name="organisation" placeholder="Your organisation">
+            <input type="number" id="phone" name="phone" placeholder="Your Phone Number">
+            <input type="date" id="dob" name="dob" placeholder="Your Date of Birth">
+            <input type="text" id="language" name="language" placeholder="Your Language">
+            <input type="text" id="genre" name="genre" placeholder="Your Genre">
+            <input type="submit" value="SIGN UP">
+        </form>
+
+    </div>
+</body>
+
+</html>

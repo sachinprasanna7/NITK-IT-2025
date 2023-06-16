@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question 1b</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #answer {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="strings">Input the String:</label><br>
+        <input type="text" id="strings" name="strings"><br>
+    </form>
+    <button onclick="myFunction()">Submit</button>
+    <br><br>
+    <p id="answer"></p>
+
+    <script>
+        function myFunction() {
+            var strings = document.getElementById("strings").value;
+            var transformedString = "";
+            
+            for (var i = 0; i < strings.length; i++) {
+                if (strings[i] === strings[i].toUpperCase()) {
+                    transformedString += strings[i].toLowerCase();
+                } else {
+                    transformedString += strings[i].toUpperCase();
+                }
+            }
+            
+            document.getElementById("answer").innerHTML = "Output: " + transformedString;
+        }
+    </script>
+</body>
+</html>

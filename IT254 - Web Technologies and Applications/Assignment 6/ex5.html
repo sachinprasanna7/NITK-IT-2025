@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Inserting Nodes in a Singly Linked List</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    label,
+    input,
+    button {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input,
+    button {
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    input[type="number"] {
+        width: 100px;
+    }
+
+    button {
+        background-color: #08c0d4;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: black;
+    }
+
+    #list {
+        margin: 20px 0;
+        padding: 0;
+        list-style-type: none;
+        text-align: center;
+    }
+
+    #list li {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    #list li .arrow {
+        margin-left: 5px;
+        margin-right: 5px;
+        font-size: 20px;
+    }
+
+    .error {
+        color: red;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    #initialValues {
+        /* hide the initial values */
+        display: none;
+    }
+
+    .main-body {
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+</style>
+
+<body onload="createLinkedList()">
+    <h1>Inserting Nodes in a Singly Linked List</h1>
+    <div class="main-body">
+        <input type="text" id="initialValues" />
+        <p>Enter position to insert node at:</p>
+        <input type="number" id="position" />
+        <p>Enter value for new node:</p>
+        <input type="number" id="value" />
+        <button onclick="insertNode()">Insert Node</button>
+    </div>
+    <p style="text-align: center;">Result:</p>
+    <ul id="list"></ul>
+
+    <script>
+        // class for each node in the linked list
+        class Node {
+            constructor(data) {
+                this.data = data;
+                this.next = null;
+            }
+        }
+
+        // class for the linked list 
+        class LinkedList {
+            constructor() {
+                this.head = null;
+            }
+
+            // Method for adding a new node to the end of the list
+            addNode(data) {
+                var newNode = new Node(data);
+                if (!this.head) {
+                    this.head = newNode;
+                } else {
+                    let currentNode = this.head;
+                    while (currentNode.next) {
+                        currentNode = currentNode.next;
+                    }
+                    currentNode.next = newNode;
+                }
+            }
+
+            // Method for inserting a new node at a specified position in the list
+            insertNodeAtPosition(data, position) {
+                var newNode = new Node(data);
+                if (position === 0) {
+                    newNode.next = this.head;
+                    this.head = newNode;
+                } else {
+                    let currentNode = this.head;
+                    for (let i = 0; i < position - 1; i++) {
+                        currentNode = currentNode.next;
+                    }
+                    newNode.next = currentNode.next;
+                    currentNode.next = newNode;
+                }
+            }
+        }
+
+        // Function for displaying the linked list on the webpage
+        function displayList() {
+            // Clearing the list
+            var listElement = document.getElementById("list");
+            listElement.innerHTML = "";
+
+            // Displaying the list
+            let currentNode = linkedList.head;
+            while (currentNode) {
+                var liElement = document.createElement("li");
+                liElement.textContent = currentNode.data;
+
+                // Adding arrow element
+                if (currentNode.next) {
+                    var arrowElement = document.createElement("span");
+                    arrowElement.innerHTML = "&#8594;";
+                    arrowElement.className = "arrow";
+                    liElement.appendChild(arrowElement);
+                }
+
+                listElement.appendChild(liElement);
+                currentNode = currentNode.next;
+            }
+        }
+
+        // Creating the linked list from user input
+        var linkedList = new LinkedList();
+        var initialValuesInput = document.getElementById("initialValues");
+
+        function createLinkedList() {
+            var initialValues = prompt(
+                "Enter initial values for the linked list (comma-separated):"
+            );
+            if (initialValues) {
+                initialValuesInput.value = initialValues;
+                var initialValuesArray = initialValues.split(",");
+                for (let i = 0; i < initialValuesArray.length; i++) {
+                    linkedList.addNode(Number(initialValuesArray[i]));
+                }
+                displayList();
+            }
+        }
+
+        // Function for inserting a new node at a specified position in the list
+        function insertNode() {
+            // Getting the position and value entered by the user
+            var positionInput = document.getElementById("position");
+            var valueInput = document.getElementById("value");
+            var position = Number(positionInput.value);
+            var value = Number(valueInput.value);
+
+            // Determining the length of the current list
+            let currentNode = linkedList.head;
+            let length = 0;
+            while (currentNode) {
+                length++;
+                currentNode = currentNode.next;
+            }
+
+            // Ensuring that the position entered by the user is valid
+            if (position < 0 || position > length) {
+                alert("Error: Invalid position entered!");
+            } else {
+                linkedList.insertNodeAtPosition(value, position);
+                positionInput.value = "";
+                valueInput.value = "";
+                displayList();
+            }
+        }
+    </script>
+
+</body>
+
+</html>

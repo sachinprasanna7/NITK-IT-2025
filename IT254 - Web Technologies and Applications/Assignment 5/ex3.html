@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Anagrams</title>
+</head>
+<body>
+    <form>
+        <input type="text" id="strA" placeholder="Enter first word">
+        <input type="text" id="strB" placeholder="Enter second word">
+        <br> <br>
+        <input type="button" id="button" value = "Click to Check for Anagrams" onclick="areAnagrams()">
+    </form>
+    <script>
+        function areAnagrams() {
+
+            // Getting the two words
+            var strA = document.getElementById("strA").value;
+            var strB = document.getElementById("strB").value;
+
+            // Converting the words to lowercase, splitting them into arrays, sorting them and joining them back into strings
+            strA = strA.toLowerCase().split('').sort().join('');
+            strB= strB.toLowerCase().split('').sort().join('');
+
+
+            // Comparing the two strings and displaying the result according to the anagram condition
+            if (strA === strB) {
+                alert("The two words are anagrams!");
+            } 
+            
+            else {
+                alert("The two words are not anagrams!");
+            }
+        }
+    </script>
+</body>
+</html>

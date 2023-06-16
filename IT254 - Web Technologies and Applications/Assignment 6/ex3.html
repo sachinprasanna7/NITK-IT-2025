@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Form Validation</title>
+    <style>
+        body {
+            padding: 10px 50px;
+        }
+
+        .formdesign {
+            font-size: 20px;
+
+        }
+
+        .title {
+            text-align: center;
+            color: blue;
+        }
+
+        .formdesign input {
+            width: 30%;
+            padding: 12px 20px;
+            border: 1px solid black;
+            margin: 14px;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+
+        .formerror {
+            color: red;
+        }
+
+        .but {
+            border-radius: 9px;
+            width: 100px;
+            height: 50px;
+            font-size: 25px;
+            margin: 22px 20px;
+            background-color: blue;
+            color: white;
+            cursor: pointer;
+        }
+
+        .but:hover {
+            background-color: black;
+            cursor: pointer;
+        }
+
+        .warning {
+            color: blue;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">JavaScript Form Validation</h1>
+    <form name="myForm" onsubmit="return validateForm()" method="post">
+
+        <div class="formdesign" id="fname">
+            First Name: <input type="text" name="fname"><b><span class="formerror"> </span></b>
+        </div>
+
+        <div class="formdesign" id="lname">
+            Last Name: <input type="text" name="lname"><b><span class="formerror"> </span></b>
+
+            <div class="formdesign" id="email">
+                Email: <input type="text" name="femail"><b><span class="formerror"> </span></b>
+            </div>
+
+            <div class="formdesign" id="phone">
+                Phone Number: <input type="number" name="fphone"><b><span class="formerror"></span></b>
+            </div>
+
+            <div class="formdesign" id="username">
+                Username: <input type="text" name="username"><b><span class="formerror"> </span></b>
+
+                <p class="warning">Please ensure password contains atleast 6 characters, one capital letter, one number
+                    and one special character!</p>
+
+                <div class="formdesign" id="pass">
+                    Password: <input type="password" name="fpass"><b><span class="formerror"> </span></b>
+                </div>
+
+                <div class="formdesign" id="cpass">
+                    Confirm Password: <input type="password" name="fcpass"><b><span class="formerror"></span></b>
+                </div>
+
+                <input class="but" type="submit" value="Submit">
+
+    </form>
+</body>
+
+<script>
+    function clearErrors() {
+        // Get all elements with class "formerror"
+        errors = document.getElementsByClassName('formerror');
+        // Loop through all elements and clear their innerHTML
+        for (let item of errors) {
+            item.innerHTML = "";
+        }
+    }
+
+    function seterror(id, error) {
+        // Get the element with the given id
+        element = document.getElementById(id);
+        // Set the innerHTML of the first child element with class "formerror"
+        element.getElementsByClassName('formerror')[0].innerHTML = error;
+    }
+
+    function validateForm() {
+        var returnval = true;
+
+        // Clear previous error messages
+        clearErrors();
+
+        //FIRST NAME VALIDATION
+        var fname = document.forms['myForm']["fname"].value;
+
+
+        //Check if number exist, name cant have numbers
+        for (var i = 0; i < fname.length; i++) {
+            if (fname[i] >= '0' && fname[i] <= '9') {
+                seterror("fname", "First Name should not contain numbers!");
+                returnval = false;
+            }
+        }
+
+        //Check if empty
+        if (fname.length == 0) {
+            seterror("fname", "First Name is Mandatory!");
+            returnval = false;
+        }
+
+        //LAST NAME VALIDATION
+        var lname = document.forms['myForm']["lname"].value;
+
+        //Check if number exist, name cant have numbers
+        for (var i = 0; i < lname.length; i++) {
+            if (lname[i] >= '0' && lname[i] <= '9') {
+                seterror("lname", "Last Name should not contain numbers!");
+                returnval = false;
+            }
+        }
+
+        //Check if empty
+        if (lname.length == 0) {
+            seterror("lname", "Last Name is Mandatory!");
+            returnval = false;
+        }
+
+        //EMAIL VALIDATION
+        var email = document.forms['myForm']["femail"].value;
+
+        var atposition = email.indexOf("@");
+        var dotposition = email.lastIndexOf(".");
+
+        //Logic for valid email address
+        if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length) {
+            seterror("email", "Please enter a valid e-mail address!");
+            returnval = false;
+        }
+
+        //Check if empty
+        if (email.length == 0) {
+            seterror("email", "Email is Mandatory!");
+            returnval = false;
+        }
+
+        //PHONE NUMBER VALIDATION
+        var phone = document.forms['myForm']["fphone"].value;
+
+        //Check if empty
+        if (phone.length == 0) {
+            seterror("phone", "Phone number is Mandatory!");
+            returnval = false;
+        }
+
+        //Check if number is 10 digits
+        if (phone.length != 10 && phone.length != 0) {
+            seterror("phone", "Phone number should be of 10 digits!");
+            returnval = false;
+        }
+
+        //USERNAME VALIDATION
+        var username = document.forms['myForm']["username"].value;
+
+        //Check if empty
+        if (username.length == 0) {
+            seterror("username", "Username is Mandatory!");
+            returnval = false;
+        }
+
+        //PASSWORD VALIDATION
+        var password = document.forms['myForm']["fpass"].value;
+
+        //Check if lesser than 6 characters, then invalid
+        if (password.length < 6) {
+            seterror("pass", "Password should be atleast 6 characters long!");
+            returnval = false;
+        }
+
+
+        var hasNumber = false;
+        var hasSpecial = false;
+        var hasCapital = false;
+
+        //Check if password has atleast one number, one special character and one capital letter
+        for (var i = 0; i < password.length; i++) {
+            if (password[i] >= '0' && password[i] <= '9') {
+                hasNumber = true;
+            }
+            else if (password[i] >= 'A' && password[i] <= 'Z') {
+                hasCapital = true;
+            }
+            else {
+                hasSpecial = true;
+            }
+        }
+
+        //Check if conditions are met
+        if (!hasNumber) {
+            seterror("pass", "Password should contain atleast one number!");
+            returnval = false;
+        }
+
+        if (!hasSpecial) {
+            seterror("pass", "Password should contain atleast one special character!");
+            returnval = false;
+        }
+
+        if (!hasCapital) {
+            seterror("pass", "Password should contain atleast one uppercase letter!");
+            returnval = false;
+        }
+
+        //Check if empty
+        if (password.length == 0) {
+            seterror("pass", "Password is Mandatory!");
+            returnval = false;
+        }
+
+        //CONFIRM PASSWORD VALIDATION
+        var cpassword = document.forms['myForm']["fcpass"].value;
+
+        //Check if password and confirm password match
+        if (cpassword != password) {
+            seterror("cpass", "Password and Confirm password should match!");
+            returnval = false;
+        }
+
+        //Check if empty
+        if (cpassword.length == 0) {
+            seterror("cpass", "Confirm Password is Mandatory!");
+            returnval = false;
+        }
+
+        //Check if all conditions are met
+        return returnval;
+    }
+
+</script>
+
+</html>

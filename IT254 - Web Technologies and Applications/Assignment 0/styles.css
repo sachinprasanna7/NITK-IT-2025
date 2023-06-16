@@ -1,0 +1,100 @@
+
+body{
+    background-color: black;
+}
+
+
+
+.titletext{
+    margin: 10px;
+    margin-left: 40px;
+}
+
+.navbarcontent{
+    margin: 10px;
+    margin-right: 40px;
+}
+
+.title-image{
+
+    display: block;
+    margin: auto;
+    width: 1000px;
+    height: 430px;   
+      
+}
+
+.title-text{
+    text-align: center;
+    color: white;
+    margin-top: 20PX;
+}
+
+.black{
+    background-color: black;
+    text-align: center;
+}
+
+
+
+/*Top Stories*/
+
+.image-table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .row {
+    display: table-row;
+  }
+  
+  .cell {
+    display: table-cell;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .caption {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  /*TOP STORIES*/
+
+  .pic{
+    /* display: block;
+    margin: auto; */
+    width: 300px;
+    height: 400px; 
+  }
+
+  .subscribe{
+    color: white;
+  }
+
+
+
+  #footer{
+    background-color: white;
+    text-align: center;
+    padding: 2% 5% 1% 5%;
+}
+
+.comp-icons{
+    /* margin: 0.5% 0.8% 1.5% 0.8%; */
+    margin: 5%;
+}
+
+.copyright-text{
+    margin-top: 2.2%;
+    font-size: 1.5rem;
+}
+  

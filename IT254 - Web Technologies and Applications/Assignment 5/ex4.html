@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Compare Printing and Computing</title>
+</head>
+
+<body>
+
+    <h1>Printing Numbers: </h1>
+    <div id="printing-numbers"></div>
+    <h2>Elapsed Time: <span id="printing-time"></span></h2>
+
+    <h2>Computing Sum: </h2>
+    <h3>Computed Sum: <span id="sum"></span></h3>
+    <h2>Elapsed Time: <span id="sum-time"></span></h2>
+
+    <script>
+
+        //Creating a new date object
+        const startTime1 = new Date();
+
+        //Getting the start time in minutes, seconds and milliseconds
+        const startMinutes1 = startTime1.getMinutes();
+        const startSeconds1 = startTime1.getSeconds();
+        const startMilliseconds1 = startTime1.getMilliseconds();
+
+        // Generating an HTML string with numbers from 1 to 10000 and adding it to the 'printing-numbers' element
+        // This will print out each number
+        let numbersHTML = '';
+        for (let i = 1; i <= 10000; i++) {
+            numbersHTML += `${i}<br>`;
+        }
+        document.getElementById('printing-numbers').innerHTML = numbersHTML;
+
+
+        //Creating a new date object for recording the end time
+        const endTime1 = new Date();
+
+        //Getting the end time in minutes, seconds and milliseconds
+        const endMinutes1 = endTime1.getMinutes();
+        const endSeconds1 = endTime1.getSeconds();
+        const endMilliseconds1 = endTime1.getMilliseconds();
+
+        //Calculating the elapsed time
+        const elapsedTime1 = endTime1 - startTime1; 
+
+        //Displaying the elapsed time
+        document.getElementById('printing-time').innerHTML = `${elapsedTime1}ms`;
+
+
+        //Code to Compute the sum of numbers from 1 to 10000
+
+        //Creating a new date object
+        const startTime2 = new Date();
+
+        //Getting the start time in minutes, seconds and milliseconds
+        const startMinutes2 = startTime2.getMinutes();
+        const startSeconds2 = startTime2.getSeconds();
+        const startMilliseconds2 = startTime2.getMilliseconds();
+
+        //Computing the sum of numbers from 1 to 10000
+        let sum = 0;
+        for (let i = 1; i <= 10000; i++) {
+            sum += i;
+        }
+
+        //Displaying the computed sum
+        document.getElementById('sum').innerHTML = sum;
+
+        //Creating a new date object for recording the end time
+        const endTime2 = new Date();
+
+        //Getting the end time in minutes, seconds and milliseconds
+        const endMinutes2 = endTime2.getMinutes();
+        const endSeconds2 = endTime2.getSeconds();
+        const endMilliseconds2 = endTime2.getMilliseconds();
+
+        //Calculating the elapsed time
+        const elapsedTime2 = endTime2 - startTime2;
+
+        //Displaying the elapsed time
+        document.getElementById('sum-time').innerHTML = `${elapsedTime2}ms`;
+    </script>
+
+</body>
+
+</html>
