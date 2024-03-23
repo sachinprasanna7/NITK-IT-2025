@@ -1,0 +1,99 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(images/backgroundhome.jpg);
+}
+
+.container {
+    text-align: center;
+    width: 90%;
+    max-width: 600px;
+    background-color: peachpuff; 
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 32px;
+    color: #2c3e50; /* Adjust text color as needed */
+}
+
+header p {
+    color: #34495e; /* Adjust text color as needed */
+}
+
+.letters {
+    display: flex;
+    flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.letter-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: 5px; /* Add margin around each button */
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.letter-button:hover {
+    background-color: black; /* Button color on hover */
+}
+
+#startLearningButton {
+    padding: 15px 40px;
+    font-size: 24px;
+    background-color: #27ae60; /* Adjust button color as needed */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#startLearningButton:hover {
+    background-color: #219653; /* Button color on hover */
+}
+
+footer {
+    margin-top: 20px;
+    color: #34495e; /* Adjust text color as needed */
+}
+
+
+.greeting-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    color: inherit;
+    width: 150px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    font-size: 30px; /* Adjust font size as needed */
+
+}
+
+.greeting-button:focus {
+    outline: none;
+}
+
+.greeting-button:focus {
+    outline: none;
+}

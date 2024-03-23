@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alphabet Learning</title>
+  <link rel="stylesheet" href="B.css">
+</head>
+<body>
+  <div class="container">
+    <button id="backButton" class="top-button">&#127968;</button>
+    <div class="alphabet-display" style="height: 280px;">
+      <div class="letter">
+        <h1 style="margin-top: 20px;">B</h1>
+      </div>
+    </div>
+    <button id="nextButton" class="top-button">C</button>
+    <div class="middle-section" style="height: 280px;">
+      <img src="images/butterfly.jpg" alt="Aeroplane" width="300px" height="300px" id = "aeroplaneimg">
+    </div>
+    <audio id="aeroplaneaudio">
+      <source src="audio/B.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <div class="drawing-area">
+      <h1 style="width: 300px; color: red;">Draw Here</h1>
+      <canvas id="drawingCanvas" width="300" height="300" style="background-color: peachpuff;"></canvas>
+      <br>
+      <button id="clearButton">🧹🧽 </button>
+      <button id="helpButton">❓❓</button>
+      <!-- <canvas id="fireworksCanvas" style="position: absolute; top: 0; left: 0;"></canvas> -->
+
+    </div>
+  </div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="images/sorry.png" alt="Try Again Image" width="200px" height="200px">
+    </div>
+  </div>
+  
+  <!-- Success Modal -->
+  <div id="successModal" class="modal-2">
+    <div class="success-modal-content">
+      <!-- Close button -->
+      <span class="sucess-close">&times;</span>
+      <!-- Success image -->
+      <img src="images/success.png" alt="Success Image" width="200px" height="200px">
+  
+      <br>
+  
+      <button class="retry-button">&#x1F501; </button>
+      <button class="next-button">&#x1F171; </button>
+      <button class="home-button">&#127968;</button>
+  
+    </div>
+  </div>
+
+  <script src="B.js"></script>
+</body>
+</html>
+
+
+
