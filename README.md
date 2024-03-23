@@ -39,7 +39,7 @@ IT303 (Software Engineering) - Dr. Biju R Mohan
 IT350 (Data Analytics) - Dr. Anand Kumar Madasamy
 
 
-IT351 (Human Computer Interaction) - Dr. Geetha V
+IT351 (Human Computer Interaction) - Dr. Geetha V, Ms. Vijetha U
 
 
 IT414 (Data Warehousing and Data Mining) - Dr. Nagamma Patil, Mr. Palla Parasuram Yadav
