@@ -36,3 +36,10 @@ IT302 (Probability and Statistics) - Mr. Palla Parasuram Yadav
 IT303 (Software Engineering) - Dr. Biju R Mohan
 
 
+IT350 (Data Analytics) - Dr. Anand Kumar Madasamy
+
+
+IT351 (Human Computer Interaction) - Dr. Geetha V
+
+
+IT414 (Data Warehousing and Data Mining) - Dr. Nagamma Patil, Mr. Palla Parasuram Yadav
