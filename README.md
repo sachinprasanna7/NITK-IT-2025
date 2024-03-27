@@ -33,7 +33,7 @@ IT300 (Design and Analysis of Algorithms) - Dr. Purushothama B R, Mr. Thaker Pra
 IT302 (Probability and Statistics) - Mr. Palla Parasuram Yadav
 
 
-IT303 (Software Engineering) - Dr. Biju R Mohan, Ms. Madhusmitha Das
+IT303 (Software Engineering) - Dr. Biju R Mohan, Ms. Madhusmita Das
 
 
 IT350 (Data Analytics) - Dr. Anand Kumar Madasamy, Mr. Hariharan R L, Mr. Naveen Recharla
