@@ -21,7 +21,7 @@ IT251 (Data Structures & Algorithms II) - Mr. Haridas Pai
 IT252 (Database Systems) - Ms. Anita S R
 
 
-IT253 (Operating Systems) - Dr. Geetha V
+IT253 (Operating Systems) - Dr. Geetha V,  Mr. Ranjit P Kolkar
 
 
 IT254 (Web Technologies and Applications) - Dr. Shriram K Vasudevan, Mr. Tyson Baptist D Cunha and Research Scholars
@@ -33,10 +33,10 @@ IT300 (Design and Analysis of Algorithms) - Dr. Purushothama B R, Mr. Thaker Pra
 IT302 (Probability and Statistics) - Mr. Palla Parasuram Yadav
 
 
-IT303 (Software Engineering) - Dr. Biju R Mohan
+IT303 (Software Engineering) - Dr. Biju R Mohan, Ms. Madhusmitha Das
 
 
-IT350 (Data Analytics) - Dr. Anand Kumar Madasamy
+IT350 (Data Analytics) - Dr. Anand Kumar Madasamy, Mr. Hariharan R L, Mr. Naveen Recharla
 
 
 IT351 (Human Computer Interaction) - Dr. Geetha V, Ms. Vijetha U
