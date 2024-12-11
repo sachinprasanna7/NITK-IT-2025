@@ -43,3 +43,10 @@ IT351 (Human Computer Interaction) - Dr. Geetha V, Ms. Vijetha U
 
 
 IT414 (Data Warehousing and Data Mining) - Dr. Nagamma Patil, Mr. Palla Parasuram Yadav
+
+
+IT416 (Computer Vision) - Dr. Dinesh Naik
+
+
+IT465 (Cryptocurrencies and Blockchain Technologies) - Dr. Bhawana Rudra, Mr. Sarvesh V. Sawant
+
